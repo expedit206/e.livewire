@@ -18,9 +18,11 @@ return new class extends Migration
             $table->decimal('grand_total', 10, 2)->nullable();
             $table->decimal('payment_method')->nullable();
             $table->decimal('payment_status')->nullable();
-            $table->enum('status', ['new', 'processing', 'completed', 'declined', 'canceled'])->default('pending ');
-            $table->string('slug')->unique();
-            $table->string('images')->nullable();
+            $table->enum('status', ['new', 'processing', 'completed', 'declined', 'canceled'])->default('new ');
+            $table->string('currency')->nullable();
+            $table->decimal('shipping_amount', 10, 2)->nullable();
+            $table->string('shipping_method')->nullable();
+            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }
